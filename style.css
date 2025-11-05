@@ -1,0 +1,259 @@
+/* Root Variables */
+:root {
+    --gradient-bg: linear-gradient(180deg, #004de8 0%, #0a26b5 40%, #1409aeda 70%, #331ca5 100%);
+    --second-bd-color: #0a26b5;
+    --text-color: #fff;
+    --main-color: #4e46c1da;
+}
+
+/* Reset & Fonts */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background: var(--gradient-bg);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: rgba(0,0,0,0.6);
+    color: var(--text-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav-links li a {
+    color: var(--text-color);
+    transition: 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--second-bd-color);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: var(--text-color);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Toggle Animation */
+.hamburger.toggle span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.toggle span:nth-child(2) {
+    opacity: 0;
+}
+.hamburger.toggle span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: var(--second-bd-color);
+}
+
+/* Skills Section */
+.skills, .about-section, .contact-section, .portfolio-section {
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.skill-cards, .portfolio-cards {
+    display: grid;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.skill-cards {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.portfolio-cards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.card {
+    padding: 1.5rem;
+    background-color: var(--second-bd-color);
+    color: var(--text-color);
+    border-radius: 10px;
+    font-weight: bold;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background-color: var(--main-color);
+}
+
+.portfolio-cards img {
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-cards .card a.btn {
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+/* About Section */
+.about-section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-section h3 {
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.about-section p {
+    max-width: 800px;
+    margin: 0 auto 1rem auto;
+    line-height: 1.8;
+}
+
+/* Contact Section */
+.contact-section form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-section input,
+.contact-section textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--text-color);
+    border-radius: 10px;
+    background: transparent;
+    color: var(--text-color);
+}
+
+.contact-section input::placeholder,
+.contact-section textarea::placeholder {
+    color: var(--text-color);
+    opacity: 0.7;
+}
+
+.contact-section button {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.75rem 1rem;
+    border-radius: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact-section button:hover {
+    background-color: var(--second-bd-color);
+}
+
+/* Footer */
+footer {
+    background: rgba(0,0,0,0.6);
+    color: var(--text-color);
+    text-align: center;
+    padding: 1rem;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Flex grow for main sections */
+main, .hero, .skills, .portfolio-section, .about-section, .contact-section {
+    flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background: rgba(0,0,0,0.9);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 1rem;
+        z-index: 100;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+}
